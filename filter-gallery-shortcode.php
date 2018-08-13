@@ -1,7 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-add_shortcode('PFG', 'awl_filter_gallery_shortcode');
-function awl_filter_gallery_shortcode($post_id) {
+add_shortcode('PFG', 'padma_filter_gallery_shortcode');
+function padma_filter_gallery_shortcode($post_id) {
 	ob_start();
 
 	//js
@@ -18,7 +18,7 @@ function awl_filter_gallery_shortcode($post_id) {
 	wp_enqueue_style('awl-YouTubePopUp-css', PFG_PLUGIN_URL .'css/YouTubePopUp.css');
 	wp_enqueue_style('awl-font-awesome-css', PFG_PLUGIN_URL .'css/font-awesome.min.css');
 	
-	$pf_gallery_settings = unserialize(base64_decode(get_post_meta( $post_id['id'], 'awl_filter_gallery'.$post_id['id'], true)));
+	$pf_gallery_settings = unserialize(base64_decode(get_post_meta( $post_id['id'], 'padma_filter_gallery'.$post_id['id'], true)));
 	$pf_gallery_id = $post_id['id'];
 
 	//columns settings
@@ -30,20 +30,24 @@ function awl_filter_gallery_shortcode($post_id) {
 	//image setting
 	$image_numbering = $pf_gallery_settings['image_numbering'];
 	$title_thumb = $pf_gallery_settings['title_thumb'];
+	
 	//filter sorting controls
-	//$filter_bg = $pf_gallery_settings['filter_bg'];
 	if(isset($pf_gallery_settings['custom-css'])) $custom_css = $pf_gallery_settings['custom-css']; else $custom_css = "";
 	if(isset($pf_gallery_settings['filter_bg'])) $filter_bg = $pf_gallery_settings['filter_bg']; else $filter_bg = "red";
+	
 	//filter setting for data-filters
-	$pf_gallery_settings = unserialize(base64_decode(get_post_meta( $post_id['id'], 'awl_filter_gallery'.$post_id['id'], true)));
+	$pf_gallery_settings = unserialize(base64_decode(get_post_meta( $post_id['id'], 'padma_filter_gallery'.$post_id['id'], true)));
 	if(isset($pf_gallery_settings['filters'])) $filters = $pf_gallery_settings['filters']; else  $filters = array();
+	
 	// ligtbox style
 	if(isset($pf_gallery_settings['light-box'])) $light_box = $pf_gallery_settings['light-box']; else $light_box = 1;
 	
 	//hover effect
 	if(isset($pf_gallery_settings['image_hover_effect_type'])) $image_hover_effect_type = $pf_gallery_settings['image_hover_effect_type']; else $image_hover_effect_type = "2d";
+
 	if($image_hover_effect_type == "no") {
 		$image_hover_effect = "";
+
 	} else {
 		// hover csss
 		wp_enqueue_style('ggp-hover-css', PFG_PLUGIN_URL .'css/hover.css');
@@ -212,4 +216,3 @@ function awl_filter_gallery_shortcode($post_id) {
 	}
 	return ob_get_clean();
 }
-?>

@@ -2,8 +2,8 @@
 //toggle button CSS
 wp_enqueue_style('awl-em-css', plugin_dir_url( __FILE__ ) . 'css/toogle-button.css');
 wp_enqueue_style('awl-go-top-css', plugin_dir_url( __FILE__ ) . 'css/go-to-top.css');
-wp_enqueue_style( 'vg-font-awesome-css', plugin_dir_url( __FILE__ ).'css/font-awesome.min.css' );
-wp_enqueue_style( 'awl-bootstrap-css', plugin_dir_url( __FILE__ ) .'css/bootstrap.css' );
+wp_enqueue_style('vg-font-awesome-css', plugin_dir_url( __FILE__ ).'css/font-awesome.min.css' );
+wp_enqueue_style('awl-bootstrap-css', plugin_dir_url( __FILE__ ) .'css/bootstrap.css' );
 wp_enqueue_style('awl-styles-css', plugin_dir_url( __FILE__ ) . 'css/styles.css');
 
 //js
@@ -13,7 +13,7 @@ wp_enqueue_script( 'awl-go-top-js', plugin_dir_url( __FILE__ ) .'js/go-to-top.js
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 //load settings
-$pf_gallery_settings = unserialize(base64_decode(get_post_meta( $post->ID, 'awl_filter_gallery'.$post->ID, true)));
+$pf_gallery_settings = unserialize(base64_decode(get_post_meta( $post->ID, 'padma_filter_gallery'.$post->ID, true)));
 $image_gallery_id = $post->ID;
 ?>
 <!-- Return to Top -->
@@ -32,7 +32,6 @@ $image_gallery_id = $post->ID;
 	
 }
 .pfg_label_settings {
-	
 	background-color: #f6f6f6;
     color: #23282d;
     font-family: icon;
@@ -427,53 +426,18 @@ $image_gallery_id = $post->ID;
 		Interval = setInterval(pulseEff,1500);
 	}
 </script>
-	<p class="text-center">
-		<br>
-		<a href="http://awplife.com/account/signup/portfolio-filter-gallery" target="_blank" class="button button-primary button-hero load-customize hide-if-no-customize">Buy Premium Version</a>
-		<a href="http://demo.awplife.com/portfolio-filter-gallery-premium/" target="_blank" class="button button-primary button-hero load-customize hide-if-no-customize">Check Live Demo</a>
-		<a href="http://demo.awplife.com/portfolio-filter-gallery-premium-admin-demo" target="_blank" class="button button-primary button-hero load-customize hide-if-no-customize">Try Admin Demo</a>
-	</p>	
-	<hr>
-	<style>
-		.awp_bale_offer {
-			background-image: url("<?php echo PFG_PLUGIN_URL ?>/img/awp-bale.jpg");
-			background-repeat:no-repeat;
-			padding:30px;
-		}
-		.awp_bale_offer h1 {
-			font-size:35px;
-			color:#006B9F;
-		}
-		.awp_bale_offer h3 {
-			font-size:25px;
-			color:#000000;
-		}
-	</style>
-	<div class="row awp_bale_offer">
-		<div class="">
-			<h1>Plugin's Bale Offer</h1>
-			<h3> Get All Premium Plugin ( Personal Licence) in just $149 </h3>
-			<h3><strike> $399</strike> For $149 Only </h3>
-		</div>
-		<div class="">
-			<a href="http://awplife.com/account/signup/all-premium-plugins" target="_blank" class="button button-primary button-hero load-customize hide-if-no-customize"> BUY NOW </a>
-		</div>
-	</div>
-<hr>
-<p class="">
-	<h1><strong> Try Our Other Free Plugins: </strong></h1>
-	<br>
-	<a href="https://wordpress.org/plugins/new-grid-gallery/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Grid Gallery </a>
-	<a href="https://wordpress.org/plugins/new-social-media-widget/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Social Media </a>
-	<a href="https://wordpress.org/plugins/new-image-gallery/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Image Gallery </a>
-	<a href="https://wordpress.org/plugins/new-photo-gallery/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Photo Gallery </a>
-	<a href="https://wordpress.org/plugins/responsive-slider-gallery/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Responsive Slider Gallery </a>
-	<a href="https://wordpress.org/plugins/new-contact-form-widget/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Contact Form Widget </a>
-	<a href="https://wordpress.org/plugins/facebook-likebox-widget-and-shortcode/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Facebook Likebox Plugin </a>
-	<a href="https://wordpress.org/plugins/slider-responsive-slideshow/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Slider Responsive Slideshow </a>
-	<a href="https://wordpress.org/plugins/new-video-gallery/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Video Gallery </a><br><br>
-	<a href="https://wordpress.org/plugins/new-facebook-like-share-follow-button/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Facebook Like Share Follow Button </a>
-	<a href="https://wordpress.org/plugins/new-google-plus-badge/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Google Plus Badge </a>
-	<a href="https://wordpress.org/plugins/media-slider/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Media Slider </a>
-	<a href="https://wordpress.org/plugins/weather-effect/" target="_blank" class="button button-primary load-customize hide-if-no-customize"> Weather Effect </a>
-</p>
+<style>
+	.awp_bale_offer {
+		background-image: url("<?php echo PFG_PLUGIN_URL ?>/img/awp-bale.jpg");
+		background-repeat:no-repeat;
+		padding:30px;
+	}
+	.awp_bale_offer h1 {
+		font-size:35px;
+		color:#006B9F;
+	}
+	.awp_bale_offer h3 {
+		font-size:25px;
+		color:#000000;
+	}
+</style>

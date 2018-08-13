@@ -3,8 +3,8 @@
 /*
 Plugin Name:	Padma Filter Gallery
 Plugin URI:		https://www.padmaunlimited/plugins/filter-gallery
-Description:  	Filter Gallery For Wordpress. Based on Portfolio Filter Gallery 0.3.0 by A WP Life
-Version:		1.0.0
+Description:  	Filter Gallery For Wordpress. Based on Padma Filter Gallery 0.0.1 by A WP Life
+Version:		0.0.1
 Author: 		Padma Unlimited Team
 Author URI: 	https://www.padmaunlimited.com/
 License:      	GPL2
@@ -46,16 +46,16 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 		
 		protected function _constants() {
 			//Plugin Version
-			define( 'PFG_PLUGIN_VER', '0.3.0' );
+			define( 'PFG_PLUGIN_VER', '0.0.1' );
 			
 			//Plugin Text Domain
-			define("PFG_TXTDM","portfolio-filter-gallery" );
+			define("PFG_TXTDM","padma-filter-gallery" );
 
 			//Plugin Name
-			define( 'PFG_PLUGIN_NAME', __( 'Portfolio Filter Gallery', PFG_TXTDM ) );
+			define( 'PFG_PLUGIN_NAME', __( 'Padma Filter Gallery', PFG_TXTDM ) );
 
 			//Plugin Slug
-			define( 'PFG_PLUGIN_SLUG', 'awl_filter_gallery' );
+			define( 'PFG_PLUGIN_SLUG', 'padma_filter_gallery' );
 
 			//Plugin Directory Path
 			define( 'PFG_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
@@ -75,7 +75,7 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 			//add gallery menu item, change menu filter for multisite
 			add_action( 'admin_menu', array( $this, 'pfg_menu' ), 101 );
 			
-			//Create Portfolio Filter Gallery Custom Post
+			//Create Padma Filter Gallery Custom Post
 			add_action( 'init', array( $this, 'Portfolio_Filter_Gallery' ));
 			
 			//Add meta box to custom post
@@ -98,32 +98,30 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 		}
 		
 		public function pfg_menu() {
-			$filter_menu = add_submenu_page( 'edit.php?post_type='.PFG_PLUGIN_SLUG, __( 'Filters', PFG_TXTDM ), __( 'Filters', PFG_TXTDM ), 'administrator', 'pfg-filter-page', array( $this, 'awl_filter_page') );
-			$doc_menu    = add_submenu_page( 'edit.php?post_type='.PFG_PLUGIN_SLUG, __( 'Docs', PFG_TXTDM ), __( 'Docs', PFG_TXTDM ), 'administrator', 'sr-doc-page', array( $this, 'pfg_doc_page') );
-			$featured_menu    = add_submenu_page( 'edit.php?post_type='.PFG_PLUGIN_SLUG, __( 'Featured-plugin', PFG_TXTDM ), __( 'Featured plugin', PFG_TXTDM ), 'administrator', 'sr-featured-page', array( $this, 'pfg_featured_page') );
-			$theme_menu    = add_submenu_page( 'edit.php?post_type='.PFG_PLUGIN_SLUG, __( 'Our Theme', PFG_TXTDM ), __( 'Our Theme', PFG_TXTDM ), 'administrator', 'sr-theme-page', array( $this, 'pfg_theme_page') );
+			$filter_menu = add_submenu_page( 'edit.php?post_type='.PFG_PLUGIN_SLUG, __( 'Filters', PFG_TXTDM ), __( 'Filters', PFG_TXTDM ), 'administrator', 'pfg-filter-page', array( $this, 'padma_filter_page') );
+			$doc_menu    = add_submenu_page( 'edit.php?post_type='.PFG_PLUGIN_SLUG, __( 'Docs', PFG_TXTDM ), __( 'Docs', PFG_TXTDM ), 'administrator', 'sr-doc-page', array( $this, 'pfg_doc_page') );			
 		}
 		
 		public function Portfolio_Filter_Gallery() {
 			$labels = array(
-				'name'                => _x( 'Portfolio Filter Gallery', 'Post Type General Name', PFG_TXTDM ),
-				'singular_name'       => _x( 'Portfolio Filter Gallery', 'Post Type Singular Name', PFG_TXTDM ),
+				'name'                => _x( 'Padma Filter Gallery', 'Post Type General Name', PFG_TXTDM ),
+				'singular_name'       => _x( 'Padma Filter Gallery', 'Post Type Singular Name', PFG_TXTDM ),
 				'menu_name'           => __( 'Portfolio Gallery', PFG_TXTDM ),
 				'name_admin_bar'      => __( 'Portfolio Filter', PFG_TXTDM ),
 				'parent_item_colon'   => __( 'Parent Item:', PFG_TXTDM ),
 				'all_items'           => __( 'All Gallery', PFG_TXTDM ),
 				'add_new_item'        => __( 'Add New Gallery', PFG_TXTDM ),
 				'add_new'             => __( 'Add New Gallery', PFG_TXTDM ),
-				'new_item'            => __( 'New Portfolio Filter Gallery', PFG_TXTDM ),
-				'edit_item'           => __( 'Edit Portfolio Filter Gallery', PFG_TXTDM ),
-				'update_item'         => __( 'Update Portfolio Filter Gallery', PFG_TXTDM ),
-				'search_items'        => __( 'Search Portfolio Filter Gallery', PFG_TXTDM ),
-				'not_found'           => __( 'Portfolio Filter Gallery Not found', PFG_TXTDM ),
-				'not_found_in_trash'  => __( 'Portfolio Filter Gallery Not found in Trash', PFG_TXTDM ),
+				'new_item'            => __( 'New Padma Filter Gallery', PFG_TXTDM ),
+				'edit_item'           => __( 'Edit Padma Filter Gallery', PFG_TXTDM ),
+				'update_item'         => __( 'Update Padma Filter Gallery', PFG_TXTDM ),
+				'search_items'        => __( 'Search Padma Filter Gallery', PFG_TXTDM ),
+				'not_found'           => __( 'Padma Filter Gallery Not found', PFG_TXTDM ),
+				'not_found_in_trash'  => __( 'Padma Filter Gallery Not found in Trash', PFG_TXTDM ),
 			);
 			$args = array(
-				'label'               => __( 'Portfolio Filter Gallery', PFG_TXTDM ),
-				'description'         => __( 'Custom Post Type For Portfolio Filter Gallery', PFG_TXTDM ),
+				'label'               => __( 'Padma Filter Gallery', PFG_TXTDM ),
+				'description'         => __( 'Custom Post Type For Padma Filter Gallery', PFG_TXTDM ),
 				'labels'              => $labels,
 				'supports'            => array('title'),
 				'taxonomies'          => array(),
@@ -141,11 +139,11 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 				'publicly_queryable'  => true,
 				'capability_type'     => 'page',
 			);
-			register_post_type( 'awl_filter_gallery', $args );
+			register_post_type( 'padma_filter_gallery', $args );
 		} // end of post type function
 		
 		public function admin_add_meta_box() {
-			add_meta_box( __('Add Portfolio Filter Gallery', PFG_TXTDM), __('Add Portfolio Filter Gallery', PFG_TXTDM), array(&$this, 'pfg_image_upload'), 'awl_filter_gallery', 'normal', 'default' );
+			add_meta_box( __('Add Padma Filter Gallery', PFG_TXTDM), __('Add Padma Filter Gallery', PFG_TXTDM), array(&$this, 'pfg_image_upload'), 'padma_filter_gallery', 'normal', 'default' );
 		}
 			
 		public function pfg_image_upload($post) {		
@@ -164,9 +162,9 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 				<input type="button" id="remove-all-images" name="remove-all-images" class="button button-large remove-all-images" rel="" value="<?php _e('Delete All Images', PFG_TXTDM); ?>">
 				<ul id="remove-images" class="sbox">
 					<?php
-					$allimagesetting = unserialize(base64_decode(get_post_meta( $post->ID, 'awl_filter_gallery'.$post->ID, true)));
+					$allimagesetting = unserialize(base64_decode(get_post_meta( $post->ID, 'padma_filter_gallery'.$post->ID, true)));
 					
-					$all_category = get_option('awl_portfolio_filter_gallery_categories');
+					$all_category = get_option('padma_portfolio_filter_gallery_categories');
 					if(isset($allimagesetting['image-ids'])) {
 						$filters = $allimagesetting['filters'];
 						$count = 0;
@@ -236,7 +234,7 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 			//thumb, thumbnail, medium, large, post-thumbnail
 			$thumbnail = wp_get_attachment_image_src($id, 'medium', true);
 			$attachment = get_post( $id ); // $id = attachment id
-			$all_category = get_option('awl_portfolio_filter_gallery_categories');
+			$all_category = get_option('padma_portfolio_filter_gallery_categories');
 			?>
 			<li class="image">
 				<img class="new-image" src="<?php echo $thumbnail[0]; ?>" alt="<?php echo get_the_title($id); ?>" style="height: 150px; width: 100%; border-radius: 5px;">
@@ -288,33 +286,25 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 						$i++;
 					}
 					
-					$awl_image_gallery_shortcode_setting = "awl_filter_gallery".$post_id;
-					update_post_meta($post_id, $awl_image_gallery_shortcode_setting, base64_encode(serialize($_POST)));
+					$padma_image_gallery_shortcode_setting = "padma_filter_gallery".$post_id;
+					update_post_meta($post_id, $padma_image_gallery_shortcode_setting, base64_encode(serialize($_POST)));
 				}
 			}
 		}// end save setting
 		
 		//filter/category page
-		public function awl_filter_page() {
+		public function padma_filter_page() {
 			require_once('filters.php');
 		}
 		
 		//Doc page
 		public function pfg_doc_page() {
 			require_once('docs.php');
-			}
-			
-		public function pfg_featured_page() {
-			require_once('featured-plugins/featured-plugins.php');
 		}
-		
-		public function pfg_theme_page() {
-			require_once('our-theme/awp-theme.php');
-		}
+
 		
 		
 	}
 	$pfg_portfolio_gallery_object = new Awl_Portfolio_Filter_Gallery();		
 	require_once('filter-gallery-shortcode.php');
 }
-?>

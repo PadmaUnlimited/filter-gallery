@@ -1,7 +1,7 @@
 jQuery(function(jQuery) {
     
     var file_frame,
-    awl_image_gallery = {
+    padma_image_gallery = {
         ul: '',
         init: function() {
             this.ul = jQuery('.sbox');
@@ -27,7 +27,7 @@ jQuery(function(jQuery) {
                     var images = file_frame.state().get('selection').toJSON(),
                             length = images.length;
                     for (var i = 0; i < length; i++) {
-                        awl_image_gallery.get_thumbnail(images[i]['id']);
+                        padma_image_gallery.get_thumbnail(images[i]['id']);
                     }
                 });
                 file_frame.open();
@@ -50,7 +50,7 @@ jQuery(function(jQuery) {
 			 */
 			jQuery('#remove-all-images').on('click', function() {
                 if (confirm('Are sure to delete all images?')) {
-                    awl_image_gallery.ul.empty();
+                    padma_image_gallery.ul.empty();
                 }
                 return false;
             });
@@ -64,10 +64,10 @@ jQuery(function(jQuery) {
                 PFGimageId: id
             };
             jQuery.post(ajaxurl, data, function(response) {
-                awl_image_gallery.ul.append(response);
+                padma_image_gallery.ul.append(response);
                 cb();
             });
         }
     };
-    awl_image_gallery.init();
+    padma_image_gallery.init();
 });

@@ -4,11 +4,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * Blue Imp Light Box Load File
  */
 
-$allimages = array(  'p' => $pf_gallery_id, 'post_type' => 'awl_filter_gallery', 'orderby' => 'ASC');
+$allimages = array(  'p' => $pf_gallery_id, 'post_type' => 'padma_filter_gallery', 'orderby' => 'ASC');
 $loop = new WP_Query( $allimages );
 while ( $loop->have_posts() ) : $loop->the_post();
 	$post_id = get_the_ID();
-	$all_category = get_option('awl_portfolio_filter_gallery_categories');
+	$all_category = get_option('padma_portfolio_filter_gallery_categories');
 
 	// collect all selected filters assigned on images
 	$all_selected_filters = array();

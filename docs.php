@@ -7,13 +7,13 @@ if(isset($_POST['action']) == "add-category"){
 	//$category_slug = strtolower($category_name);
 	$new_category = array($category_name);
 	
-	$all_category = get_option('awl_portfolio_filter_gallery_categories');
+	$all_category = get_option('padma_portfolio_filter_gallery_categories');
 	if(is_array($all_category)) {
 		$all_category = array_merge($all_category, $new_category);
 	} else {
 		$all_category = $new_category;
 	}
-	update_option( 'awl_portfolio_filter_gallery_categories', $all_category);
+	update_option( 'padma_portfolio_filter_gallery_categories', $all_category);
 		
 } // end of save if	
 ?>
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 <div class="wrap">
 	<div id="welcome-panel" class="welcome-panel">
 		<div class="welcome-panel-content">
-			<h1> Welcome to Portfolio Filter Gallery Plugin Docs </h1>
+			<h1> Welcome to Padma Filter Gallery Plugin Docs </h1>
 			<p class="about-description"> Getting started with pluign - Follow steps to create & publish portfolio gallery </p>
 			<hr>
 
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			<h3> Step 2 - Add filters for gallery go to the plugin menu "Filters". <h3>
 			<h3> Step 3 - Create A Gallery <h3>
 			<p> Plugin has been installed on site. </p>
-			<p> Now, go to the plugin menu "Portfolio Filter Gallery" and click on "Add New Portfolio Filter Gallery" page. </p>
+			<p> Now, go to the plugin menu "Padma Filter Gallery" and click on "Add New Padma Filter Gallery" page. </p>
 			<p> Using "Add" Image button upload images through media library. Give image title, image link and use Control (Ctrl) key for add filters in gallery. </p>
 			<p> Set gallery setting like Thumbnail Quality & Size, Coulmns Layout, Light Box Style, Hover Effect, Spacing, Order and Custom CSS etc according to you. </p>
 			<p> Finally click on "Publish" button to create gallery. </p>
@@ -54,9 +54,3 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		</div>
 	</div>
 </div>
-<p class="text-center">
-	<br>
-	<a href="http://awplife.com/account/signup/portfolio-filter-gallery" target="_blank" class="button button-primary button-hero load-customize hide-if-no-customize"> Buy Premium Version </a>
-	<a href="http://demo.awplife.com/portfolio-filter-gallery-premium/" target="_blank" class="button button-primary button-hero load-customize hide-if-no-customize"> Check Live Demo </a>
-	<a href="http://demo.awplife.com/portfolio-filter-gallery-premium-admin-demo" target="_blank" class="button button-primary button-hero load-customize hide-if-no-customize"> Try Admin Demo </a>
-</p>	
