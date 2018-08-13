@@ -3,8 +3,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Blue Imp Light Box Load File
  */
-wp_enqueue_style('awl-bootstrap-lightbox-css', PFG_PLUGIN_URL .'lightbox/bootstrap/css/ekko-lightbox.css');
-wp_enqueue_script('awl-bootstrap-lightbox-js', PFG_PLUGIN_URL .'lightbox/bootstrap/js/ekko-lightbox.js', array('jquery'), '' , true);
+wp_enqueue_style('pfg-bootstrap-lightbox-css', PFG_PLUGIN_URL .'lightbox/bootstrap/css/ekko-lightbox.css');
+wp_enqueue_script('pfg-bootstrap-lightbox-js', PFG_PLUGIN_URL .'lightbox/bootstrap/js/ekko-lightbox.js', array('jquery'), '' , true);
 
 $allimages = array(  'p' => $pf_gallery_id, 'post_type' => 'padma_filter_gallery', 'orderby' => 'ASC');
 $loop = new WP_Query( $allimages );

@@ -4,7 +4,7 @@
 Plugin Name:	Padma Filter Gallery
 Plugin URI:		https://www.padmaunlimited/plugins/filter-gallery
 Description:  	Filter Gallery For Wordpress. Based on Padma Filter Gallery 0.0.1 by A WP Life
-Version:		0.0.1
+Version:		0.0.3
 Author: 		Padma Unlimited Team
 Author URI: 	https://www.padmaunlimited.com/
 License:      	GPL2
@@ -31,13 +31,9 @@ along with Padma Filter Gallery plugin. If not, see https://www.gnu.org/licenses
 defined('ABSPATH') or die( 'Access Forbidden!' );
 
 
+if ( ! class_exists( 'Padma_Filter_Gallery' ) ) {
 
-if ( ! defined( 'ABSPATH' ) ) exit;
-
-
-if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
-
-	class Awl_Portfolio_Filter_Gallery {		
+	class Padma_Filter_Gallery {		
 		
 		public function __construct() {
 			$this->_constants();
@@ -46,7 +42,7 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 		
 		protected function _constants() {
 			//Plugin Version
-			define( 'PFG_PLUGIN_VER', '0.0.1' );
+			define( 'PFG_PLUGIN_VER', '0.0.2' );
 			
 			//Plugin Text Domain
 			define("PFG_TXTDM","padma-filter-gallery" );
@@ -76,7 +72,7 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 			add_action( 'admin_menu', array( $this, 'pfg_menu' ), 101 );
 			
 			//Create Padma Filter Gallery Custom Post
-			add_action( 'init', array( $this, 'Portfolio_Filter_Gallery' ));
+			add_action( 'init', array( $this, 'Padma_Filter_Gallery' ));
 			
 			//Add meta box to custom post
 			add_action( 'add_meta_boxes', array( $this, 'admin_add_meta_box' ) );
@@ -102,7 +98,7 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 			$doc_menu    = add_submenu_page( 'edit.php?post_type='.PFG_PLUGIN_SLUG, __( 'Docs', PFG_TXTDM ), __( 'Docs', PFG_TXTDM ), 'administrator', 'sr-doc-page', array( $this, 'pfg_doc_page') );			
 		}
 		
-		public function Portfolio_Filter_Gallery() {
+		public function Padma_Filter_Gallery() {
 			$labels = array(
 				'name'                => _x( 'Padma Filter Gallery', 'Post Type General Name', PFG_TXTDM ),
 				'singular_name'       => _x( 'Padma Filter Gallery', 'Post Type Singular Name', PFG_TXTDM ),
@@ -149,9 +145,9 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 		public function pfg_image_upload($post) {		
 			wp_enqueue_script('jquery');
 			wp_enqueue_script('media-upload');
-			wp_enqueue_script('awl-pfg-uploader.js', PFG_PLUGIN_URL . 'js/awl-pfg-uploader.js', array('jquery'));
-			wp_enqueue_style('awl-pfg-uploader-css', PFG_PLUGIN_URL . 'css/awl-pfg-uploader.css');
-			wp_enqueue_script( 'awl-pfg-color-picker-js', plugins_url('js/pfg-color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
+			wp_enqueue_script('pfg-uploader.js', PFG_PLUGIN_URL . 'js/pfg-uploader.js', array('jquery'));
+			wp_enqueue_style('pfg-uploader-css', PFG_PLUGIN_URL . 'css/pfg-uploader.css');
+			wp_enqueue_script( 'pfg-color-picker-js', plugins_url('js/pfg-color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
 			wp_enqueue_media();			
 			wp_enqueue_style( 'wp-color-picker' );
 			?>
@@ -300,11 +296,21 @@ if ( ! class_exists( 'Awl_Portfolio_Filter_Gallery' ) ) {
 		//Doc page
 		public function pfg_doc_page() {
 			require_once('docs.php');
-		}
-
-		
+		}	
 		
 	}
-	$pfg_portfolio_gallery_object = new Awl_Portfolio_Filter_Gallery();		
+	
+	$pfg_portfolio_gallery_object = new Padma_Filter_Gallery();		
 	require_once('filter-gallery-shortcode.php');
+}
+
+
+// Updates
+if(is_admin()){
+    add_action('after_setup_theme', 'padma_lifesaver_updates');
+    function padma_lifesaver_updates(){
+        if ( ! empty ( $GLOBALS[ 'PadmaUpdater' ] ) ){
+            $GLOBALS[ 'PadmaUpdater' ]->updater('padma-lifesaver',__DIR__);
+        }
+    }
 }

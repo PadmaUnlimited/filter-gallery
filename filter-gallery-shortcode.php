@@ -7,16 +7,16 @@ function padma_filter_gallery_shortcode($post_id) {
 	//js
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('imagesloaded');
-	wp_enqueue_script('awl-ig-bootstrap-js', PFG_PLUGIN_URL .'js/bootstrap.min.js', array('jquery'), '' , true);
-	wp_enqueue_script('awl-ig-controls-js', PFG_PLUGIN_URL .'js/controls.js', array('jquery'), '', false);
-	wp_enqueue_script('awl-ig-filterizr-js', PFG_PLUGIN_URL .'js/jquery.filterizr.js', array('jquery'), '', false);
-	wp_enqueue_script('awl-pfg-YouTubePopUp.jquery-js', PFG_PLUGIN_URL .'js/YouTubePopUp.jquery.js', array('jquery'), '', false);
+	wp_enqueue_script('pfg-ig-bootstrap-js', PFG_PLUGIN_URL .'js/bootstrap.min.js', array('jquery'), '' , true);
+	wp_enqueue_script('pfg-ig-controls-js', PFG_PLUGIN_URL .'js/controls.js', array('jquery'), '', false);
+	wp_enqueue_script('pfg-ig-filterizr-js', PFG_PLUGIN_URL .'js/jquery.filterizr.js', array('jquery'), '', false);
+	wp_enqueue_script('pfg-YouTubePopUp.jquery-js', PFG_PLUGIN_URL .'js/YouTubePopUp.jquery.js', array('jquery'), '', false);
 	
 	// css
-	wp_enqueue_style('awl-filter-css', PFG_PLUGIN_URL .'css/filter-gallery.css');
-	wp_enqueue_style('awl-bootstrap-css', PFG_PLUGIN_URL .'css/ig-bootstrap.css');
-	wp_enqueue_style('awl-YouTubePopUp-css', PFG_PLUGIN_URL .'css/YouTubePopUp.css');
-	wp_enqueue_style('awl-font-awesome-css', PFG_PLUGIN_URL .'css/font-awesome.min.css');
+	wp_enqueue_style('pfg-filter-css', PFG_PLUGIN_URL .'css/filter-gallery.css');
+	wp_enqueue_style('pfg-bootstrap-css', PFG_PLUGIN_URL .'css/ig-bootstrap.css');
+	wp_enqueue_style('pfg-YouTubePopUp-css', PFG_PLUGIN_URL .'css/YouTubePopUp.css');
+	wp_enqueue_style('pfg-font-awesome-css', PFG_PLUGIN_URL .'css/font-awesome.min.css');
 	
 	$pf_gallery_settings = unserialize(base64_decode(get_post_meta( $post_id['id'], 'padma_filter_gallery'.$post_id['id'], true)));
 	$pf_gallery_id = $post_id['id'];

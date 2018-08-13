@@ -1,8 +1,8 @@
 <?php
 //filters page
-wp_enqueue_style('awl-pfg-bootstrap-css', PFG_PLUGIN_URL . 'css/fb-buttons-bootstrap.css');
-wp_enqueue_style('awl-pfg-filter-css', PFG_PLUGIN_URL . 'css/filter-templet.css');
-wp_enqueue_style('awl-pfg-font-css', PFG_PLUGIN_URL . 'css/font-awesome.min.css');
+wp_enqueue_style('pfg-bootstrap-css', PFG_PLUGIN_URL . 'css/fb-buttons-bootstrap.css');
+wp_enqueue_style('pfg-filter-css', PFG_PLUGIN_URL . 'css/filter-templet.css');
+wp_enqueue_style('pfg-font-css', PFG_PLUGIN_URL . 'css/font-awesome.min.css');
 
 $all_category = get_option('padma_portfolio_filter_gallery_categories');
 if(is_array($all_category)){
@@ -16,7 +16,7 @@ if(is_array($all_category)){
 }
 ?>
 <!--Category Section Start-->
-<div class="row awl-spacing-md" id="update_div">
+<div class="row pfg-spacing-md" id="update_div">
 	<div class="container">
 		<div class="form-style-5 text-center">
 			<input type="button" class="button button-primary button-hero load-customize hide-if-no-customize" id="save_category" name="save_category" value="<?php _e('Add New Category', PFG_TXTDM); ?>" onclick="return DoAction('showaddform', '');" />

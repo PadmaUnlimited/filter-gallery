@@ -1,15 +1,15 @@
 <?php
 //toggle button CSS
-wp_enqueue_style('awl-em-css', plugin_dir_url( __FILE__ ) . 'css/toogle-button.css');
-wp_enqueue_style('awl-go-top-css', plugin_dir_url( __FILE__ ) . 'css/go-to-top.css');
+wp_enqueue_style('pfg-em-css', plugin_dir_url( __FILE__ ) . 'css/toogle-button.css');
+wp_enqueue_style('pfg-go-top-css', plugin_dir_url( __FILE__ ) . 'css/go-to-top.css');
 wp_enqueue_style('vg-font-awesome-css', plugin_dir_url( __FILE__ ).'css/font-awesome.min.css' );
-wp_enqueue_style('awl-bootstrap-css', plugin_dir_url( __FILE__ ) .'css/bootstrap.css' );
-wp_enqueue_style('awl-styles-css', plugin_dir_url( __FILE__ ) . 'css/styles.css');
+wp_enqueue_style('pfg-bootstrap-css', plugin_dir_url( __FILE__ ) .'css/bootstrap.css' );
+wp_enqueue_style('pfg-styles-css', plugin_dir_url( __FILE__ ) . 'css/styles.css');
 
 //js
 wp_enqueue_script('jquery');
-wp_enqueue_script( 'awl-bootstrap-js',  plugin_dir_url( __FILE__ ) .'js/bootstrap.js', array( 'jquery' ), '', true  );
-wp_enqueue_script( 'awl-go-top-js', plugin_dir_url( __FILE__ ) .'js/go-to-top.js', array( 'jquery' ), '', true  );
+wp_enqueue_script( 'pfg-bootstrap-js',  plugin_dir_url( __FILE__ ) .'js/bootstrap.js', array( 'jquery' ), '', true  );
+wp_enqueue_script( 'pfg-go-top-js', plugin_dir_url( __FILE__ ) .'js/go-to-top.js', array( 'jquery' ), '', true  );
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 //load settings
