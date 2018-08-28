@@ -23,14 +23,11 @@ while ( $loop->have_posts() ) : $loop->the_post();
 		<ul class="simplefilter simplefilter_<?php echo $pf_gallery_id; ?>">
 			<?php 
 			$all_category_val = $all_category[0]; ?>
-			<li class="active" data-filter="all"><?php _e($all_category_val, PFG_TXTDM); ?></li>
-			<?php
+			<li class="active" data-filter="all"><?php _e($all_category_val, PFG_TXTDM); ?></li><?php
 			if(is_array($all_selected_filters) && count($all_selected_filters)) {
 				$all_selected_filters = array_unique($all_selected_filters ); // remove same key
 				foreach ($all_selected_filters as $filter_key) {
-					?>
-					<li data-filter="<?php echo $filter_key ?>"><?php  _e($all_category[$filter_key], PFG_TXTDM); ?></li>
-					<?php
+					?><li data-filter="<?php echo $filter_key ?>"><?php  _e($all_category[$filter_key], PFG_TXTDM); ?></li><?php
 				}
 			}?>
 		</ul>
