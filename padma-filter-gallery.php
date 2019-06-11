@@ -3,8 +3,8 @@
 /*
 Plugin Name:	Padma Filter Gallery
 Plugin URI:		https://www.padmaunlimited/plugins/filter-gallery
-Description:  	Filter Gallery For Wordpress. Based on Padma Filter Gallery 0.0.1 by A WP Life
-Version:		0.0.7
+Description:  	Filter Gallery For Wordpress. Based on Filter Gallery 0.0.1 by A WP Life
+Version:		0.0.9
 Author: 		Padma Unlimited Team
 Author URI: 	https://www.padmaunlimited.com/
 License:      	GPL2
@@ -302,21 +302,4 @@ if ( ! class_exists( 'Padma_Filter_Gallery' ) ) {
 
 	$pfg_portfolio_gallery_object = new Padma_Filter_Gallery();		
 	require_once('filter-gallery-shortcode.php');
-}
-
-
-
-/**
- *
- * Updates control
- *
- */
-if(is_admin()){
-	add_action('after_setup_theme', 'padma_filter_gallery_updates');
-    function padma_filter_gallery_updates(){
-        if(class_exists('PadmaUpdater')){
-			$PadmaUpdater = new PadmaUpdater();
-			$PadmaUpdater->updater('padma-filter-gallery',__DIR__);
-		}
-    }
 }
