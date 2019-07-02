@@ -19,7 +19,7 @@ while ( $loop->have_posts() ) : $loop->the_post();
 	}
 	?>
 	
-	<div class="row text-center">
+	<div class="row text-center categories">
 		<ul class="simplefilter simplefilter_<?php echo $pf_gallery_id; ?>">
 			<?php 
 			$all_category_val = $all_category[0]; ?>

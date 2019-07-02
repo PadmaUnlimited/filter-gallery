@@ -4,7 +4,7 @@
 Plugin Name:	Padma Filter Gallery
 Plugin URI:		https://www.padmaunlimited/plugins/filter-gallery
 Description:  	Filter Gallery For Wordpress. Based on Filter Gallery 0.0.1 by A WP Life
-Version:		0.0.9
+Version:		1.0.0
 Author: 		Padma Unlimited Team
 Author URI: 	https://www.padmaunlimited.com/
 License:      	GPL2
@@ -41,8 +41,6 @@ if ( ! class_exists( 'Padma_Filter_Gallery' ) ) {
 		}		
 		
 		protected function _constants() {
-			//Plugin Version
-			define( 'PFG_PLUGIN_VER', '0.0.2' );
 			
 			//Plugin Text Domain
 			define("PFG_TXTDM","padma-filter-gallery" );
@@ -102,7 +100,7 @@ if ( ! class_exists( 'Padma_Filter_Gallery' ) ) {
 			$labels = array(
 				'name'                => _x( 'Padma Filter Gallery', 'Post Type General Name', PFG_TXTDM ),
 				'singular_name'       => _x( 'Padma Filter Gallery', 'Post Type Singular Name', PFG_TXTDM ),
-				'menu_name'           => __( 'Portfolio Gallery', PFG_TXTDM ),
+				'menu_name'           => __( 'Filter Gallery', PFG_TXTDM ),
 				'name_admin_bar'      => __( 'Portfolio Filter', PFG_TXTDM ),
 				'parent_item_colon'   => __( 'Parent Item:', PFG_TXTDM ),
 				'all_items'           => __( 'All Gallery', PFG_TXTDM ),
@@ -302,4 +300,23 @@ if ( ! class_exists( 'Padma_Filter_Gallery' ) ) {
 
 	$pfg_portfolio_gallery_object = new Padma_Filter_Gallery();		
 	require_once('filter-gallery-shortcode.php');
+
+
 }
+
+
+add_action('after_setup_theme', function(){
+
+    if ( !class_exists('Padma') )
+		return;
+
+	require_once 'block.php';
+	require_once 'block-options.php';
+	
+	if (!class_exists('PadmaBlockAPI') )
+		return false;
+
+	
+	return padma_register_block('PadmaFilterGallery', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
+
+});
