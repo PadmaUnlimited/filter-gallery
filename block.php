@@ -70,8 +70,6 @@ class PadmaFilterGallery extends PadmaBlockAPI {
 	}
 
 	function content($block) {
-
-		debug($block);
 		
 		$gallery = parent::get_setting($block, 'gallery', '');		
 		echo do_shortcode('[PFG id="'.$gallery.'"]');
