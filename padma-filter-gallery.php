@@ -4,7 +4,7 @@
 Plugin Name:	Padma Filter Gallery
 Plugin URI:		https://www.padmaunlimited/plugins/filter-gallery
 Description:  	Filter Gallery For Wordpress. Based on Filter Gallery 0.0.1 by A WP Life
-Version:		1.0.0
+Version:		1.0.2
 Author: 		Padma Unlimited Team
 Author URI: 	https://www.padmaunlimited.com/
 License:      	GPL2
@@ -312,11 +312,20 @@ add_action('after_setup_theme', function(){
 
 	require_once 'block.php';
 	require_once 'block-options.php';
-	
-	if (!class_exists('PadmaBlockAPI') )
-		return false;
 
-	
-	return padma_register_block('PadmaFilterGallery', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
+	$class = 'PadmaFilterGallery';
+	$block_type_url = substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1);		
+	$class_file = __DIR__ . '/block.php';
+	$icons = array(
+			'path' => __DIR__,
+			'url' => $block_type_url
+		);
+
+	return padma_register_block(
+		$class,
+		$block_type_url,
+		$class_file,
+		$icons
+	);
 
 });

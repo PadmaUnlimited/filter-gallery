@@ -26,7 +26,7 @@ class PadmaFilterGalleryOptions extends PadmaBlockOptionsAPI {
 
 		$args = array('post_type' => 'padma_filter_gallery', 'posts_per_page' => -1);
 		$items = array(
-			'-1' => 'Select a form'
+			'-1' => 'Select a gallery'
 		);
 		
 		if( $data = get_posts($args)){
