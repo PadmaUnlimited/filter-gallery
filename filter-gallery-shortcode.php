@@ -130,7 +130,7 @@ function padma_filter_gallery_shortcode($post_id) {
 			top: 2rem !important;
 		}
 		<?php } ?>
-		
+		/*
 		.item_desc_<?php echo $pf_gallery_id; ?> , .item_position_<?php echo $pf_gallery_id; ?> {
 			<?php if($title_color){ ?>
 			color: <?php echo $title_color; ?> !important;
@@ -146,7 +146,7 @@ function padma_filter_gallery_shortcode($post_id) {
 			<?php if($title_size){ ?>
 			font-size :<?php echo $title_size; ?>px !important;
 			<?php } ?>			 
-		}
+		}*/
 		
 		
 		<?php if($gray_scale){ ?>

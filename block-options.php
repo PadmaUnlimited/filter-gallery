@@ -32,7 +32,12 @@ class PadmaFilterGalleryOptions extends PadmaBlockOptionsAPI {
 		if( $data = get_posts($args)){
 			
 			foreach($data as $key){
-				$items[$key->ID] = $key->post_title;
+				
+				if( empty($key->post_title) ){
+					$items[$key->ID] = 'Gallery ID ' . $key->ID;
+				}else{
+					$items[$key->ID] = $key->post_title;
+				}
 			}
 
 		}
